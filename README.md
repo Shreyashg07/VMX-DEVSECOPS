@@ -1,3 +1,5 @@
+![Alt Text](Assets/banner.jpeg)
+
 # 🚨 CI/CD Pipeline Integrity & Code Injection Monitoring Tool
 
 An **AI-powered DevSecOps security platform** designed to **detect malicious logic, code injections, and integrity violations inside CI/CD pipelines**—even when the code is **obfuscated, novel, or previously unseen**.
@@ -208,3 +210,4 @@ This Tool	Detects malicious steps
 ✅ AI-driven intent detection
 Every command is inspected
 Every build is verified before deployment
+
