@@ -1,0 +1,59 @@
+[
+  { "id": "suspicious_eval", "pattern": "\\beval\\s*\\(", "type": "regex", "score": 7, "description": "Use of eval() — dynamic execution" },
+
+  { "id": "suspicious_exec", "pattern": "\\bexec\\s*\\(", "type": "regex", "score": 7, "description": "Use of exec() — unsafe execution" },
+
+  { "id": "suspicious_compile", "pattern": "\\bcompile\\s*\\(", "type": "regex", "score": 6, "description": "Use of compile() — dynamic code compilation" },
+
+  { "id": "suspicious_base64", "pattern": "(base64_decode|atob|from_base64|btoa)", "type": "regex", "score": 6, "description": "Base64 encode/decode suspicious usage" },
+
+  { "id": "suspicious_long_line", "pattern": "^.{200,}$", "type": "regex", "score": 5, "description": "Line exceeds 200 characters — possible obfuscation" },
+
+  { "id": "curl_pipe_bash", "pattern": "curl\\s+[^\\n]*\\|\\s*(sh|bash)", "type": "regex", "score": 10, "description": "curl | sh detected — remote code execution" },
+
+  { "id": "wget_pipe_bash", "pattern": "wget\\s+[^\\n]*\\|\\s*(sh|bash)", "type": "regex", "score": 10, "description": "wget | sh detected — remote code execution" },
+
+  { "id": "suspicious_url_exec", "pattern": "https?://[^\\s]+\\s*\\|\\s*(sh|bash)", "type": "regex", "score": 10, "description": "Remote script fetched and piped to shell" },
+
+  { "id": "suspicious_base64_long", "pattern": "[A-Za-z0-9+/]{100,}={0,2}", "type": "regex", "score": 6, "description": "Large Base64 blob — possible encoded payload" },
+
+  { "id": "suspicious_ssh_key", "pattern": "-----BEGIN (RSA|OPENSSH|PRIVATE KEY)-----", "type": "regex", "score": 9, "description": "Private SSH key found in repository" },
+
+  { "id": "suspicious_token", "pattern": "(GITHUB_TOKEN|API_KEY|SECRET|ACCESS_TOKEN|AUTH_TOKEN)", "type": "regex", "score": 6, "description": "Possible secret token exposure" },
+
+  { "id": "suspicious_download_binary", "pattern": "curl\\s+[^\\n]+\\.(exe|bin|dll|so|dylib)", "type": "regex", "score": 8, "description": "Binary file downloaded — supply chain risk" },
+
+  { "id": "suspicious_eval_js", "pattern": "\\beval\\s*\\(", "type": "regex", "score": 7, "description": "JavaScript eval usage — unsafe dynamic code" },
+
+  { "id": "obfuscated_js", "pattern": "\\b(function\\(\\)\\{\\)\\(|\\)\\(function)", "type": "regex", "score": 6, "description": "JS IIFE obfuscation pattern" },
+
+  { "id": "suspicious_powershell", "pattern": "powershell\\s+(-EncodedCommand|-enc)", "type": "regex", "score": 10, "description": "Encoded PowerShell command — malware behavior" },
+
+  { "id": "suspicious_obf_hex", "pattern": "0x[0-9a-fA-F]{50,}", "type": "regex", "score": 6, "description": "Hex blob (>50 chars) — possible obfuscated shellcode" },
+
+  { "id": "suspicious_shell_exec", "pattern": "\\b(system|popen|execv|execvp|subprocess\\.Popen)\\s*\\(", "type": "regex", "score": 6, "description": "Shell/system command execution" },
+
+  { "id": "suspicious_reverse_shell", "pattern": "(nc\\s+-e|bash\\s+-i\\s+>&|rm\\s+-rf\\s+/)", "type": "regex", "score": 10, "description": "Reverse shell or destructive commands" },
+
+  { "id": "suspicious_js_hidden", "pattern": "(unescape\\(|decodeURIComponent\\()", "type": "regex", "score": 6, "description": "Hidden JavaScript decoding — obfuscation" },
+
+  { "id": "suspicious_obf_marker", "pattern": "_[A-F0-9]{20,}", "type": "regex", "score": 5, "description": "Hex-like variable name — obfuscation marker" },
+
+  { "id": "suspicious_inline_bash", "pattern": "\\b/bin/(bash|sh)\\b", "type": "regex", "score": 4, "description": "Explicit shell interpreter in code" },
+
+  { "id": "suspicious_git_history", "pattern": "git\\s+reset\\s+--hard", "type": "regex", "score": 8, "description": "History manipulation — possible wiping commit evidence" },
+
+  { "id": "suspicious_env_write", "pattern": "echo\\s+\\\".*(API_KEY|SECRET|TOKEN).*\\\"", "type": "regex", "score": 7, "description": "Secrets written into files/env" },
+
+  { "id": "suspicious_js_obf_longline", "pattern": "var _0x[a-f0-9]{4,}", "type": "regex", "score": 6, "description": "JS obfuscator variable names" },
+
+  { "id": "suspicious_node_install", "pattern": "npm\\s+install\\s+https?://", "type": "regex", "score": 8, "description": "npm install from URL — supply chain risk" },
+
+  { "id": "suspicious_eval_shell", "pattern": "eval\\s+\\$\\(", "type": "regex", "score": 7, "description": "Shell-based eval — unsafe dynamic execution" },
+
+  { "id": "suspicious_git_credentials", "pattern": "username:|password:", "type": "regex", "score": 8, "description": "Git credentials found in plaintext" },
+
+  { "id": "suspicious_js_minified", "pattern": "\\.[a-z]{1,2}\\(.*?\\)", "type": "regex", "score": 3, "description": "Minified JavaScript pattern (heuristic)" },
+
+  { "id": "suspicious_dynamic_exec", "pattern": "child_process\\.exec\\(", "type": "regex", "score": 7, "description": "Node.js child_process exec — possible RCE" }
+]

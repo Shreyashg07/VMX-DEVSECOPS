@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"/><title>Scan Report</title>
+<style>
+body { font-family: Arial, sans-serif; padding: 20px; }
+pre { background:#f6f6f6; padding:10px; border-radius:4px; }
+.finding { margin-bottom: 12px; border-bottom: 1px solid #eee; padding-bottom:8px; }
+</style>
+</head>
+<body>
+<h1>Scan Report</h1>
+<p>Path: {{ meta.path }}</p>
+<p>Score: {{ score }} | Action: {{ action }}</p>
+<hr/>
+{% for f in findings %}
+  <div class="finding">
+    <strong>{{ f.detector }}</strong> — <em>{{ f.id }}</em> — score: {{ f.score }}<br/>
+    <pre>{{ f.file }}</pre>
+    <div>{{ f.description }}</div>
+    {% if f.meta %}
+      <pre>{{ f.meta }}</pre>
+    {% endif %}
+  </div>
+{% endfor %}
+</body>
+</html>

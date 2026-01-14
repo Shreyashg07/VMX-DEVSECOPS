@@ -1,0 +1,13 @@
+uvicorn api.app.main:app --port 9000 --reload
+
+python -m scanner.scanner.cli examples\sample-repo
+
+docker build -t cicd-scan:dev -f docker/Dockerfile .
+
+docker run --rm -v "D:/cicd integrity monitor/examples/sample-repo:/workspace" cicd-scan:dev /workspace
+
+set REPORT_API_URL=http://127.0.0.1:9000   
+
+echo %REPORT_API_URL%
+
+npm run dev

@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>CI/CD Scan Report</title>
+<style>
+    body {
+        background: #0a192f;
+        color: #ccd6f6;
+        font-family: 'Segoe UI', sans-serif;
+        margin: 0;
+        padding: 30px;
+    }
+    h1 {
+        text-align: center;
+        color: #64ffda;
+        margin-bottom: 40px;
+        font-size: 32px;
+    }
+    .report-meta {
+        background: #112240;
+        border: 1px solid #233554;
+        padding: 18px 24px;
+        border-radius: 10px;
+        margin-bottom: 40px;
+    }
+    .report-meta b {
+        color: #64ffda;
+    }
+    .card {
+        background: #112240;
+        border: 1px solid #233554;
+        border-radius: 10px;
+        margin-bottom: 25px;
+        padding: 20px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .badge {
+        padding: 4px 10px;
+        border-radius: 6px;
+        font-size: 13px;
+        color: #fff;
+        font-weight: bold;
+    }
+    .low { background: #3b82f6; }
+    .medium { background: #f59e0b; }
+    .high { background: #ef4444; }
+    pre {
+        background: #0a192f;
+        padding: 12px;
+        border-radius: 6px;
+        border: 1px solid #233554;
+        overflow-x: auto;
+        color: #64ffda;
+    }
+</style>
+</head>
+<body>
+
+<h1>CI/CD Integrity Scan Report</h1>
+
+<div class="report-meta">
+    <p><b>Repository Path:</b> D:\ai-cicd-security-tool - Copy\backend\repo</p>
+    <p><b>Overall Score:</b> 35</p>
+    <p><b>Action:</b>
+        
+            <span class="badge medium">WARN</span>
+        
+    </p>
+</div>
+
+
+<div class="card">
+    <h3 class="high">
+        D:\ai-cicd-security-tool - Copy\backend\repo\app.py
+    </h3>
+    <p><b>Category:</b> N/A</p>
+    <p><b>Threat %:</b> 70.0%</p>
+    <p><b>Detector:</b> entropy_detector</p>
+    <p><b>ID:</b> high_entropy</p>
+
+    
+    <pre>{'entropy': 5.07047341166486}</pre>
+    
+</div>
+
+<div class="card">
+    <h3 class="high">
+        D:\ai-cicd-security-tool - Copy\backend\repo\main.py
+    </h3>
+    <p><b>Category:</b> N/A</p>
+    <p><b>Threat %:</b> 70.0%</p>
+    <p><b>Detector:</b> entropy_detector</p>
+    <p><b>ID:</b> high_entropy</p>
+
+    
+    <pre>{'entropy': 5.080540625243587}</pre>
+    
+</div>
+
+<div class="card">
+    <h3 class="high">
+        D:\ai-cicd-security-tool - Copy\backend\repo\.ipynb_checkpoints\app-checkpoint.py
+    </h3>
+    <p><b>Category:</b> N/A</p>
+    <p><b>Threat %:</b> 70.0%</p>
+    <p><b>Detector:</b> entropy_detector</p>
+    <p><b>ID:</b> high_entropy</p>
+
+    
+    <pre>{'entropy': 5.07047341166486}</pre>
+    
+</div>
+
+<div class="card">
+    <h3 class="high">
+        D:\ai-cicd-security-tool - Copy\backend\repo\.ipynb_checkpoints\hehe-checkpoint.py
+    </h3>
+    <p><b>Category:</b> N/A</p>
+    <p><b>Threat %:</b> 70.0%</p>
+    <p><b>Detector:</b> entropy_detector</p>
+    <p><b>ID:</b> high_entropy</p>
+
+    
+    <pre>{'entropy': 5.099173390032753}</pre>
+    
+</div>
+
+<div class="card">
+    <h3 class="high">
+        D:\ai-cicd-security-tool - Copy\backend\repo\.ipynb_checkpoints\streamlit_app-checkpoint.py
+    </h3>
+    <p><b>Category:</b> N/A</p>
+    <p><b>Threat %:</b> 70.0%</p>
+    <p><b>Detector:</b> entropy_detector</p>
+    <p><b>ID:</b> high_entropy</p>
+
+    
+    <pre>{'entropy': 5.07047341166486}</pre>
+    
+</div>
+
+
+</body>
+</html>

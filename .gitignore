@@ -1,0 +1,111 @@
+# ===============================
+# 🔒 ENVIRONMENT & SECRETS
+# ===============================
+.env
+.env.*
+*.pem
+*.key
+*.crt
+*.secret
+*.token
+
+# ===============================
+# 🧠 PYTHON ENVIRONMENTS
+# ===============================
+.venv/
+venv/
+ENV/
+env/
+env.bak/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ===============================
+# 🌐 NODE / JAVASCRIPT
+# ===============================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json
+
+# ===============================
+# ⚙️ BUILD & OUTPUT
+# ===============================
+dist/
+build/
+coverage/
+*.coverage
+*.log
+*.tmp
+*.bak
+
+# ===============================
+# 📦 DEPLOYMENT & TEMP FILES
+# ===============================
+*.zip
+*.tar
+*.gz
+*.7z
+*.rar
+
+# ===============================
+# 🧩 FRONTEND (React/Vite/Tailwind)
+# ===============================
+frontend/node_modules/
+frontendx/node_modules/
+frontend/dist/
+frontendx/dist/
+frontend/.vite/
+frontendx/.vite/
+
+# ===============================
+# ⚙️ BACKENDX (Node.js Backend)
+# ===============================
+backendx/node_modules/
+
+# ===============================
+# 🧰 PYTHON BACKEND (ci-integrity)
+# ===============================
+backend/ci-integrity/.venv/
+backend/ci-integrity/__pycache__/
+backend/ci-integrity/*.pkl
+backend/ci-integrity/*.h5
+backend/ci-integrity/*.joblib
+backend/ci-integrity/data/
+backend/ci-integrity/models/
+backend/ci-integrity/embeddings/
+
+# ===============================
+# 🧪 TESTS & LINTERS
+# ===============================
+pytest_cache/
+.eslintcache
+*.spec.js
+*.test.js
+
+# ===============================
+# 🖥️ IDE / SYSTEM FILES
+# ===============================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+
+
+# --- Python virtual environments ---
+backend/cicd-integrity-monitor-main/.venv/
+
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+package-lock.json

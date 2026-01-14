@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Quick mapping from your provided styles where helpful */
+body {
+  @apply bg-[#061328] text-[#ccd6f6] font-sans;
+}

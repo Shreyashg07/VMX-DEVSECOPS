@@ -1,0 +1,22 @@
+{
+  "whitelist_files": [
+    "scripts/deploy.sh",
+    "examples/sample-repo/safe_script.py",
+    "examples/sample-repo/malicious.py",
+    "examples/sample-repo/package.json",
+    "**/trusted/*",
+    "D:/cicd integrity monitor/examples/sample-repo/malicious.py",
+    "D:/cicd integrity monitor/examples/sample-repo/package.json"
+  ],
+  "whitelist_rules": [
+    "loose_version_range",
+    "npm_no_lockfile"
+  ],
+  "whitelist_detectors": [
+    "entropy_detector"
+  ],
+  "whitelist_patterns": [
+    ".*generated_by_codegen.*"
+  ],
+  "whitelist_enabled": true
+}

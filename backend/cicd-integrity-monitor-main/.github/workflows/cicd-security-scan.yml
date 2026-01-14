@@ -1,0 +1,84 @@
+name: CI Security Scan
+
+on:
+  push:
+    branches: [ main, "**" ]
+  pull_request:
+    types: [opened, synchronize, reopened]
+  workflow_dispatch:
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Build Docker Image for Scanner
+        run: |
+          docker build -t cicd-scan:ci -f docker/Dockerfile .
+
+      - name: Run security scanner
+        id: scan
+        run: |
+          mkdir -p scan_reports
+
+          docker run --rm \
+            -v "${{ github.workspace }}:/workspace" \
+            cicd-scan:ci /workspace \
+              --output "/workspace/scan_reports/report.json" \
+              --html "/workspace/scan_reports/report.html"
+        continue-on-error: true
+
+      - name: Upload scan reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: scan-reports
+          path: scan_reports
+
+      # ---------- FIXED UPLOAD STEP ----------
+      - name: Upload report to dashboard API
+        if: always()
+        run: |
+          REPORT_API="${{ secrets.REPORT_API_URL }}"
+          API_KEY="${{ secrets.REPORT_API_KEY }}"
+
+          if [ -n "$REPORT_API" ]; then
+            echo "Uploading scan report to $REPORT_API"
+
+            curl -v -X POST "$REPORT_API/incidents/" \
+              -H "Content-Type: application/json" \
+              -H "x-api-key: $API_KEY" \
+              --data-binary @scan_reports/report.json \
+              || echo "Upload to dashboard API failed"
+          else
+            echo "REPORT_API_URL not set — skipping dashboard upload"
+          fi
+
+      # ---------- FAIL JOB AFTER UPLOAD ----------
+      - name: Evaluate scan result and fail if needed
+        run: |
+          echo "Checking scan_reports/report.json..."
+
+          if [ ! -f scan_reports/report.json ]; then
+            echo "❌ ERROR: scan_reports/report.json not found!"
+            exit 1
+          fi
+
+          SCORE=$(jq '.score' scan_reports/report.json)
+          ACTION=$(jq -r '.action' scan_reports/report.json)
+
+          echo "Score: $SCORE"
+          echo "Action: $ACTION"
+
+          if [[ "$ACTION" == "fail" ]]; then
+            echo "❌ Detected malicious indicators — failing CI"
+            exit 1
+          elif [[ "$ACTION" == "warn" ]]; then
+            echo "⚠️ Warning detected — build continues"
+          else
+            echo "✅ Scan clean — build continues"
+          fi

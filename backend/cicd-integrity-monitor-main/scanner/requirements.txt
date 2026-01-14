@@ -1,0 +1,8 @@
+pyyaml
+rich
+jinja2
+gitpython
+jinja2
+toml
+GitPython
+requests

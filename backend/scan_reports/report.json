@@ -1,0 +1,121 @@
+{
+  "meta": {
+    "path": "D:\\ai-cicd-security-tool - Copy\\backend\\repo"
+  },
+  "findings": [
+    {
+      "detector": "entropy_detector",
+      "file": "D:\\ai-cicd-security-tool - Copy\\backend\\repo\\app.py",
+      "id": "high_entropy",
+      "type": "entropy",
+      "score": 7,
+      "description": "High entropy file (possible encoded/obfuscated payload)",
+      "meta": {
+        "entropy": 5.07047341166486
+      }
+    },
+    {
+      "detector": "entropy_detector",
+      "file": "D:\\ai-cicd-security-tool - Copy\\backend\\repo\\main.py",
+      "id": "high_entropy",
+      "type": "entropy",
+      "score": 7,
+      "description": "High entropy file (possible encoded/obfuscated payload)",
+      "meta": {
+        "entropy": 5.080540625243587
+      }
+    },
+    {
+      "detector": "entropy_detector",
+      "file": "D:\\ai-cicd-security-tool - Copy\\backend\\repo\\.ipynb_checkpoints\\app-checkpoint.py",
+      "id": "high_entropy",
+      "type": "entropy",
+      "score": 7,
+      "description": "High entropy file (possible encoded/obfuscated payload)",
+      "meta": {
+        "entropy": 5.07047341166486
+      }
+    },
+    {
+      "detector": "entropy_detector",
+      "file": "D:\\ai-cicd-security-tool - Copy\\backend\\repo\\.ipynb_checkpoints\\hehe-checkpoint.py",
+      "id": "high_entropy",
+      "type": "entropy",
+      "score": 7,
+      "description": "High entropy file (possible encoded/obfuscated payload)",
+      "meta": {
+        "entropy": 5.099173390032753
+      }
+    },
+    {
+      "detector": "entropy_detector",
+      "file": "D:\\ai-cicd-security-tool - Copy\\backend\\repo\\.ipynb_checkpoints\\streamlit_app-checkpoint.py",
+      "id": "high_entropy",
+      "type": "entropy",
+      "score": 7,
+      "description": "High entropy file (possible encoded/obfuscated payload)",
+      "meta": {
+        "entropy": 5.07047341166486
+      }
+    }
+  ],
+  "raw_findings": [
+    {
+      "detector": "entropy_detector",
+      "file": "D:\\ai-cicd-security-tool - Copy\\backend\\repo\\app.py",
+      "id": "high_entropy",
+      "type": "entropy",
+      "score": 7,
+      "description": "High entropy file (possible encoded/obfuscated payload)",
+      "meta": {
+        "entropy": 5.07047341166486
+      }
+    },
+    {
+      "detector": "entropy_detector",
+      "file": "D:\\ai-cicd-security-tool - Copy\\backend\\repo\\main.py",
+      "id": "high_entropy",
+      "type": "entropy",
+      "score": 7,
+      "description": "High entropy file (possible encoded/obfuscated payload)",
+      "meta": {
+        "entropy": 5.080540625243587
+      }
+    },
+    {
+      "detector": "entropy_detector",
+      "file": "D:\\ai-cicd-security-tool - Copy\\backend\\repo\\.ipynb_checkpoints\\app-checkpoint.py",
+      "id": "high_entropy",
+      "type": "entropy",
+      "score": 7,
+      "description": "High entropy file (possible encoded/obfuscated payload)",
+      "meta": {
+        "entropy": 5.07047341166486
+      }
+    },
+    {
+      "detector": "entropy_detector",
+      "file": "D:\\ai-cicd-security-tool - Copy\\backend\\repo\\.ipynb_checkpoints\\hehe-checkpoint.py",
+      "id": "high_entropy",
+      "type": "entropy",
+      "score": 7,
+      "description": "High entropy file (possible encoded/obfuscated payload)",
+      "meta": {
+        "entropy": 5.099173390032753
+      }
+    },
+    {
+      "detector": "entropy_detector",
+      "file": "D:\\ai-cicd-security-tool - Copy\\backend\\repo\\.ipynb_checkpoints\\streamlit_app-checkpoint.py",
+      "id": "high_entropy",
+      "type": "entropy",
+      "score": 7,
+      "description": "High entropy file (possible encoded/obfuscated payload)",
+      "meta": {
+        "entropy": 5.07047341166486
+      }
+    }
+  ],
+  "score": 35,
+  "action": "warn"
+}

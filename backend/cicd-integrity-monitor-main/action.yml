@@ -1,0 +1,34 @@
+name: "CI/CD Code Integrity Scanner"
+description: "Detects malicious injections, CI tampering, and suspicious code in any repository."
+author: "Omprasad Tilak"
+
+branding:
+  icon: "shield"
+  color: "red"
+
+inputs:
+  path:
+    description: "Directory to scan (default: repository root)"
+    required: false
+    default: "."
+
+  api_url:
+    description: "Optional dashboard API endpoint, e.g. https://your-server/api"
+    required: false
+
+  api_key:
+    description: "Optional API key for dashboard reporting"
+    required: false
+
+outputs:
+  report:
+    description: "Generated report.json output path"
+
+runs:
+  using: "docker"
+  image: "docker://ghcr.io/omeetilak/cicd-integrity-monitor:latest"
+  entrypoint: ["/app/entrypoint.sh"]
+  args:
+    - "--path=${{ inputs.path }}"
+    - "--api_url=${{ inputs.api_url }}"
+    - "--api_key=${{ inputs.api_key }}"
